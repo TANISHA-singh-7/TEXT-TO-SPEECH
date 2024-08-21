@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Text To Speech Converter</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r144/three.min.js"></script> 
+</head>
+<body>
+  <div class="container">
+    <div class="left-column">
+      <h1>Text <br> To <br> Speech</h1>
+    </div>
+
+    <div class="right-column">
+      <form action="#">
+        <div class="input-group">
+          <label for="text-input">Enter Text:</label>
+          <textarea id="text-input"></textarea>
+        </div>
+        <div class="input-group">
+          <label for="voice-select">Select Voice:</label>
+          <select id="voice-select"></select>
+        </div>
+        <button id="speech-btn">Convert</button> 
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</body>
+</html>

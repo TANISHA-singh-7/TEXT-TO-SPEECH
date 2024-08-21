@@ -1,0 +1,190 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: #f0f0f0;
+  font-family: Monospace;
+}
+
+#canvas {
+  width: 100%;
+  height: 100vh;
+  display: block;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace; 
+  background: #222; 
+  color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden; /* Prevent scrollbars from Three.js canvas */
+}
+
+.container {
+  display: flex;
+  background-color: #161616; 
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+  overflow: hidden; 
+  z-index: 1; /* Keep the container above the Three.js canvas */
+  position: relative;
+}
+
+/* Left Column Styling */
+.left-column {
+  background: linear-gradient(to bottom, #0078D7, #003087); 
+  color: #fff;
+  padding: 40px;
+  width: 40%;
+  text-align: center;
+  position: relative; 
+}
+
+.left-column h1 {
+  font-size: 3em;
+  line-height: 1.2;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8); 
+  z-index: 1; 
+}
+
+.left-column::before, 
+.left-column::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 255, 255, 0.8), transparent);
+  z-index: 0; 
+  animation: glowLines 2s linear infinite alternate; 
+}
+
+.left-column::before {
+  left: 20px;
+}
+
+.left-column::after {
+  right: 20px;
+}
+
+/* Right Column Styling */
+.right-column {
+  padding: 40px;
+  width: 60%;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #00FFFF;
+}
+
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #00FFFF; 
+  border-radius: 5px;
+  font-size: 1em;
+  background: rgba(0, 0, 0, 0.8); 
+  color: #00FFFF;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: rgba(0, 0, 0, 0.8) url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2300FFFF' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat right 10px center; 
+  padding-right: 30px; 
+}
+
+button {
+  background-color: transparent;  
+  color: #00FFFF; 
+  padding: 15px 25px;
+  border: 2px solid #00FFFF; 
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  background-image: radial-gradient(rgba(0, 255, 255, 0.1), rgba(0, 255, 255, 0.1)); 
+  background-position: 0% 0%;
+  background-size: 400% 400%; 
+  animation: starPulse 4s infinite linear; 
+}
+
+button:hover {
+  color: #000;
+  border-color: #486ef56c;
+  background-size: 100% 100%;
+}
+
+button::before { 
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #007fad30;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+button:hover::before {
+  transform: translateX(0); 
+}
+
+/* Animations */
+@keyframes glowLines {
+  0% {
+    background: linear-gradient(to bottom, rgba(0, 255, 255, 0.8), transparent);
+  }
+  100% {
+    background: linear-gradient(to bottom, transparent, rgba(0, 255, 255, 0.8));
+  }
+}
+
+@keyframes starPulse {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: -100% -100%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; 
+  }
+
+  .left-column, 
+  .right-column {
+    width: 100%;
+  }
+
+  .left-column {
+    padding: 30px; 
+  }
+}
