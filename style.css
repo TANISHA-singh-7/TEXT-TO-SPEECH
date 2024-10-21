@@ -29,6 +29,7 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column; /* New: Stack columns vertically for smaller screens */
   background-color: #161616; 
   border-radius: 10px;
   box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
@@ -42,7 +43,7 @@ body {
   background: linear-gradient(to bottom, #0078D7, #003087); 
   color: #fff;
   padding: 40px;
-  width: 40%;
+  width: 100%; /* New: Full width for smaller screens */
   text-align: center;
   position: relative; 
 }
@@ -77,7 +78,7 @@ body {
 /* Right Column Styling */
 .right-column {
   padding: 40px;
-  width: 60%;
+  width: 100%; /* New: Full width for smaller screens */
 }
 
 .input-group {
@@ -186,5 +187,33 @@ button:hover::before {
 
   .left-column {
     padding: 30px; 
+  }
+}
+
+@media (max-width: 400px) { 
+  .container {
+    flex-direction: column; /* Stack columns vertically for smaller screens */
+  }
+
+  .left-column, 
+  .right-column {
+    width: 100%;
+  }
+
+  .left-column {
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+
+  .left-column h1 {
+    font-size: 2.5em; /* Adjust font size for smaller screens */
+  }
+
+  textarea,
+  select {
+    font-size: 0.9em; /* Adjust font size for smaller screens */
+  }
+
+  button {
+    font-size: 1em; /* Adjust button font size for smaller screens */
   }
 }
